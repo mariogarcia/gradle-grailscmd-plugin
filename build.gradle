@@ -1,4 +1,13 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
+
+install {
+    repositories.mavenInstaller {
+        pom.version = '1.0.0-SNAPSHOT'
+        pom.groupId = 'com.bitability'
+        pom.artifactId = 'gradle-plugins'
+    }
+}
 
 repositories {
     mavenCentral()
