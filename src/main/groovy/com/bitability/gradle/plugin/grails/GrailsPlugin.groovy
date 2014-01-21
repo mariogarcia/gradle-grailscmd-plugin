@@ -15,6 +15,10 @@ class GrailsPlugin extends CommandPlugin {
 
     void apply(Project project) {
 
+        def script = project.buildscript.classLoader.getResource('com/bitability/gradle/plugin/grails/commands.groovy').text
+        def config = new ConfigSlurper().parse(script)
+
+        createTasksFrom(project, config)
     }
 
 }

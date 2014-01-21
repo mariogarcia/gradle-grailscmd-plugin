@@ -23,20 +23,27 @@ class CommandPlugin implements Plugin<Project> {
     }
 
     void createTaskWith(Project project, Object definition) {
-        definition.with {
-            project.task(
-                type: CommandLineTask,
-                description: definition.description,
-                description.name) { task ->
-                    if (baseDir) {
-                        task.baseDir = baseDir
-                    }
-                    task.command = command
-                    task.args = definition.
-                    task.dependsOn = dependsOn
-                    task.mustRunAfter = mustRunAfter
-            }
+        def k = definition.key
+        def v = definition.value
+
+        project.task(
+            type: CommandTask,
+            description: v.description,k) { task ->
+                if (v.baseDir) {
+                    task.baseDir = v.baseDir
+                }
+                if (v.group) {
+                    task.group = v.group
+                }
+                task.command = v.command
+                task.args = v.args
+                task.dependsOn = initializeWithList(v.dependsOn)
+                task.mustRunAfter = initializeWithList(v.mustRunAfter)
         }
+    }
+
+    List initializeWithList(Object possible) {
+        return possible ?: []
     }
 
 }

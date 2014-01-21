@@ -19,7 +19,7 @@ class CommandTask extends DefaultTask {
         new Executor().execute(
             command,
             args.split().toList(),
-            baseDir ?: path
+            baseDir ?: project.projectDir
         )
     }
 

@@ -86,7 +86,7 @@ class Executor {
             redirectOutput(ProcessBuilder.Redirect.INHERIT).
             directory(baseDir).
             start().with {
-                closure.call(delegate())
+                closure.call(delegate)
                 delegate
             }
     }
