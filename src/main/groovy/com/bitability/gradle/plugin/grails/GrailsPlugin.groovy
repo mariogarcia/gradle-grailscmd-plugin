@@ -1,6 +1,5 @@
 package com.bitability.gradle.plugin.grails
 
-import org.gradle.internal.classloader.ClasspathUtil
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
