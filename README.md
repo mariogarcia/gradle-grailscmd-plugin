@@ -1,7 +1,7 @@
-gradle-grailscmd-plugin
+gradle-cmd-plugin
 =======================
 
-A Gradle plugin to invoke Grails commands
+A plugin to launch command line executions as Gradle tasks.
 
 Goal
 ----
